@@ -30,12 +30,14 @@
                 <!-- Organization (Admin only) -->
                 @admin
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-target="#organizationDropdown" role="button"
-                        data-bs-toggle="collapse" aria-expanded="false">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-building"></i>
-                        <p>Organization</p>
+                        <p>
+                            Organization
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
-                    <ul class="nav nav-treeview collapse" id="organizationDropdown">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('organization.department') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -65,12 +67,14 @@
                 <!-- Employees (Admin only) -->
                 @admin
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-target="#employeesDropdown" role="button"
-                        data-bs-toggle="collapse" aria-expanded="false">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user-group"></i>
-                        <p>Employees</p>
+                        <p>
+                            Employees
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
-                    <ul class="nav nav-treeview collapse" id="employeesDropdown">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('manageEmployee.addEmployee') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -105,12 +109,14 @@
 
                 <!-- Attendance -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-target="#attendanceDropdown" role="button"
-                        data-bs-toggle="collapse" aria-expanded="false">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-clock"></i>
-                        <p>Attendance</p>
+                        <p>
+                            Attendance
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
-                    <ul class="nav nav-treeview collapse" id="attendanceDropdown">
+                    <ul class="nav nav-treeview">
                         @admin
                         <li class="nav-item">
                             <a href="{{ route('attendance.viewAttendance') }}" class="nav-link">
@@ -138,12 +144,14 @@
 
                 <!-- Leave -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-target="#leaveDropdown" role="button" data-bs-toggle="collapse"
-                        aria-expanded="false">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-person-walking-arrow-right"></i>
-                        <p>Leave</p>
+                        <p>
+                            Leave
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
-                    <ul class="nav nav-treeview collapse" id="leaveDropdown">
+                    <ul class="nav nav-treeview">
                         @employee
                         <li class="nav-item">
                             <a href="{{ route('leave.leaveForm') }}" class="nav-link">
@@ -183,12 +191,14 @@
 
                 <!-- Task Management -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-target="#taskDropdown" role="button" data-bs-toggle="collapse"
-                        aria-expanded="false">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-list-check"></i>
-                        <p>Task</p>
+                        <p>
+                            Task
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
-                    <ul class="nav nav-treeview collapse" id="taskDropdown">
+                    <ul class="nav nav-treeview">
                         @admin
                         <li class="nav-item">
                             <a href="{{ route('createTask') }}" class="nav-link">
@@ -199,7 +209,7 @@
                         <li class="nav-item">
                             <a href="{{ route('taskList') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Task List</p>
+                                <p>All Tasks</p>
                             </a>
                         </li>
                         @endadmin
@@ -207,7 +217,7 @@
                         <li class="nav-item">
                             <a href="{{ route('myTask') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>My Task</p>
+                                <p>My Tasks</p>
                             </a>
                         </li>
                         @endemployee

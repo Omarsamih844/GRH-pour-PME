@@ -216,6 +216,9 @@
 		});
 
         $(document).ready(function() {
+            // Initialize AdminLTE sidebar menu
+            $('[data-widget="treeview"]').Treeview('init');
+            
             $('.summernote').summernote({
                 height: 200,
                 toolbar: [
