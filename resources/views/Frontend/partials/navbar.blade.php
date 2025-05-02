@@ -24,9 +24,9 @@
                 </div>
                 <!-- /.navigations-->
             </div>
-            {{-- <div class="col-lg-3 hidden-md col-sm-6 hidden-xs pull-right">
-                <a href="#" class="btn btn-outline head-btn">Request A Consultation</a>
-            </div> --}}
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-end">
+                <a href="{{ route('admin.login') }}" class="btn btn-primary">Login</a>
+            </div>
         </div>
     </div>
 </div>

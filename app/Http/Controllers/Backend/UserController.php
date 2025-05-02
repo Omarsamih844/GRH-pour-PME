@@ -131,7 +131,7 @@ class UserController extends Controller
     public function myProfile()
     {
         $user = Auth::user();
-        if ($user->employee) {
+        if ($user && $user->employee) {
             $employee = $user->employee;
             $departments = Department::all();
             $designations = Designation::all();
@@ -160,7 +160,12 @@ class UserController extends Controller
     public function userEdit($id)
     {
         $user = User::find($id);
-        $employee = Employee::find($id);
+        if (!$user) {
+            notify()->error('User not found');
+            return redirect()->back();
+        }
+        
+        $employee = Employee::where('email', $user->email)->first();
         return view('admin.pages.Users.editUser', compact('user', 'employee'));
     }
 

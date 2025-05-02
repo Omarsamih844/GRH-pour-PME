@@ -60,11 +60,11 @@
                                     @if ($employee)
                                     <div class="col-6 mb-3">
                                         <h6>Department</h6>
-                                        <p class="text-muted">{{ $employee->department->department_name }}</p>
+                                        <p class="text-muted">{{ $employee->department ? $employee->department->department_name : 'N/A' }}</p>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <h6>Designation</h6>
-                                        <p class="text-muted">{{ $employee->designation->designation_name }}</p>
+                                        <p class="text-muted">{{ $employee->designation ? $employee->designation->designation_name : 'N/A' }}</p>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <h6>Location</h6>

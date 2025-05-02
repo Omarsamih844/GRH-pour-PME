@@ -76,7 +76,7 @@ class viewEmployeeController extends Controller
                 'date_of_birth' => 'required|date',
                 'hire_date' => 'required|date',
                 'email' => 'required|email|max:255|unique:employees,email,' . $id,
-                'phone' => 'required|string|max:20|min:11|regex:/^(?:\+?88)?01[3-9]\d{8}$/',
+                'phone' => 'required|string',
                 'joining_mode' => 'required',
                 'location' => 'required|string|max:100',
             ]);
