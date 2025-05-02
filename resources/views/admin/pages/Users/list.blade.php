@@ -1,67 +1,87 @@
 @extends('admin.master')
 
 @section('content')
-<div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">User List</h4>
-    <div>
-        @if(isset($employee) && $employee)
-            <a href="{{ route('users.create', ['employeeId' => $employee->id]) }}"
-                class="btn btn-success p-2 text-lg rounded-pill"><i class="fa-solid fa-plus me-2"></i>Create new User</a>
-        @else
-            <p class="text-danger">Please create an employee first to add users</p>
-        @endif
-    </div>
-</div>
-<div class="my-5 py-5">
-
-    <div class="d-flex justify-content-end">
-        <div class="input-group rounded w-25 mb-5">
-            <form action="{{ route('searchUser') }}" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." name="search">
-                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon"
-                        style="display: inline;">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
+<div class="table-card">
+    <div class="card-header">
+        <h4>User Management</h4>
+        <div>
+            @if(isset($employee) && $employee)
+                <a href="{{ route('users.create', ['employeeId' => $employee->id]) }}"
+                   class="btn btn-success rounded-pill">
+                   <i class="fa-solid fa-plus me-2"></i>Create New User
+                </a>
+            @else
+                <p class="text-danger mb-0">Please create an employee first to add users</p>
+            @endif
         </div>
     </div>
 
+    <div class="card-body p-0">
+        <div class="d-flex justify-content-end p-4 pb-0">
+            <form action="{{ route('searchUser') }}" method="get" class="table-search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search users..." name="search">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-
-    <table class="table align-middle text-center  w-75 mx-auto bg-white">
-        <thead class="bg-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                {{-- <th scope="col">Image</th> --}}
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $key => $user)
-            <tr>
-                <td>{{ $key + 1 }}</td>
-                <td>{{ $user->name }}</td>
-                {{-- <td><img class="avatar p-1" src="{{ url('/uploads//' . $user->image) }}" alt=""></td> --}}
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->role }}</td>
-                <td>
-                    <a class="btn btn-outline-info rounded-pill" data-mdb-ripple-color="dark"
-                        href="{{ route('users.profile.view', $user->id) }}">View</a>
-                    <a class="btn btn-outline-dark btn-rounded rounded-pill" data-mdb-ripple-color="dark"
-                        href="{{route('edit',$user->id)}}">Edit</a>
-                    <a class="btn btn-outline-danger btn-rounded rounded-pill" data-mdb-ripple-color="dark"
-                        href="{{route('delete',$user->id)}}">Delete</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <div class="w-25 mx-auto mt-4">
+        <div class="p-4">
+            <div class="table-responsive">
+                <table class="table modern-table table-centered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $key => $user)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                <span class="badge badge-pill table-badge {{ $user->role == 'admin' ? 'badge-info' : 'badge-success' }}">
+                                    {{ $user->role }}
+                                </span>
+                            </td>
+                            <td>
+                                <a class="table-action-btn btn-info" href="{{ route('users.profile.view', $user->id) }}">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a class="table-action-btn btn-dark" href="{{route('edit',$user->id)}}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="table-action-btn btn-danger" href="{{route('delete',$user->id)}}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    @if($users->count() == 0)
+    <div class="text-center p-4">
+        <div class="alert alert-info">No users found</div>
+    </div>
+    @endif
+    
+    <div class="card-footer">
+        <div class="table-pagination">
+            <!-- Pagination links would go here -->
+        </div>
     </div>
 </div>
 @endsection

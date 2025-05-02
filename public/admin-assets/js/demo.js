@@ -679,4 +679,37 @@
     $brand_variants.find('option.' + active_brand_color).prop('selected', true)
     $brand_variants.removeClass().addClass('custom-select mb-3 text-light border-0 ').addClass(active_brand_color)
   }
+
+  // Demo script functionality
+  (function() {
+    'use strict';
+    
+    // This is a placeholder for demo functionality
+    // It's referenced in the template but doesn't need to do anything specific
+    
+    console.log('Demo script loaded successfully');
+    
+    // Example functionality for demo purposes
+    function initDemo() {
+        // Add any demo-specific initialization here
+        
+        // Example: Add event listener to any demo buttons
+        var demoButtons = document.querySelectorAll('.demo-button');
+        if (demoButtons.length > 0) {
+            demoButtons.forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Demo button clicked');
+                });
+            });
+        }
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDemo);
+    } else {
+        initDemo();
+    }
+  })();
 })(jQuery)

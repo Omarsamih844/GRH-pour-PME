@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="{{ asset('admin-assets/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-assets/css/datetimepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-assets/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/css/form-enhancements.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/css/table-enhancements.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/css/dashboard-enhancements.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @notifyCss
@@ -116,11 +119,17 @@
                 dt = dt.length == 1 ? '0' + dt : dt;
 
                 var dayOfWeekElement = document.getElementById('dayOfWeek');
-                dayOfWeekElement.innerHTML = day; // Display the day of the week in uppercase
+                if (dayOfWeekElement) {
+                    dayOfWeekElement.innerHTML = day; // Display the day of the week in uppercase
+                }
 
                 var x1 = month + "-" + dt + "-" + x.getFullYear();
                 x1 = x1 + " - " + hours + ":" + minutes + " " +  ampm;
-                document.getElementById('ct7').innerHTML = x1;
+                
+                var ct7Element = document.getElementById('ct7');
+                if (ct7Element) {
+                    ct7Element.innerHTML = x1;
+                }
                 display_c7();
             }
 
@@ -207,7 +216,7 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('admin-assets/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="js/demo.js"></script>
+    <script src="{{ asset('admin-assets/js/demo.js') }}"></script>
     <script type="text/javascript">
         $.ajaxSetup({
 			headers: {
@@ -238,38 +247,28 @@
                 addRemoveLinks: true
             });
         });
-
-         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
     </script>
 
     <!-- JavaScript files-->
-    <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/bootstrap/js/bootstrap.bundle.min.js">
-    </script>
+    <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <!-- Data Tables-->
-    <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/simple-datatables/umd/simple-datatables.js">
-    </script>
+    <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/simple-datatables/umd/simple-datatables.js"></script>
     <!-- Init Charts on Homepage-->
     <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/chart.js/Chart.min.js"></script>
-    <script src="js/charts-defaults.8a5fcd99.js"></script>
-    <script src="js/index-default.50a9efee.js"></script>
+    <script src="{{ asset('admin-assets/js/charts-defaults.js') }}"></script>
+    <script src="{{ asset('admin-assets/js/index-default.js') }}"></script>
 
     {{-- Font Awesome Kit --}}
     <script src="https://kit.fontawesome.com/5c95e5cc68.js" crossorigin="anonymous"></script>
 
     <!-- Main Theme JS File-->
-    <script src="js/theme.87f0a411.js"></script>
+    <script src="{{ asset('admin-assets/js/theme.js') }}"></script>
     <!-- Prism for syntax highlighting-->
     <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/prism.js"></script>
-    <script
-        src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js">
-    </script>
-    <script
-        src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/plugins/toolbar/prism-toolbar.min.js">
-    </script>
-    <script
-        src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js">
-    </script>
+    <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
     <script type="text/javascript">
         // Optional
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -296,7 +295,6 @@
     </script>
 
     @stack('yourJsCode')
-    </script>
     @yield('customJs')
 </body>
 
