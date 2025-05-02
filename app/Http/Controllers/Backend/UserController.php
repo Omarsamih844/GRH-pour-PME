@@ -21,6 +21,7 @@ class UserController extends Controller
 
     public function loginPost(Request $request)
     {
+        // Verify the request is valid
         $val = Validator::make(
             $request->all(),
             [
@@ -34,15 +35,15 @@ class UserController extends Controller
             return redirect()->back()->withErrors($val);
         }
 
-        $credentials = $request->except('_token');
-
-        $login = auth()->attempt($credentials);
-        if ($login) {
+        // Attempt to log in with provided credentials
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            // Authentication passed
             notify()->success('Successfully Logged in');
             return redirect()->route('dashboard');
         }
 
-        return redirect()->back()->withErrors('invalid user email or password');
+        // Authentication failed
+        return redirect()->back()->withErrors('Invalid email or password');
     }
 
     public function logout()

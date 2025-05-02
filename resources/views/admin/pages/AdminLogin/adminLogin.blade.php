@@ -157,6 +157,8 @@
                             <div class="card-body">
                                 <form action="{{ route('admin.login.post') }}" method="post">
                                     @csrf
+                                    <!-- This is the CSRF token -->
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                     <div class="form-group">
                                         <label for="email">Email</label>
