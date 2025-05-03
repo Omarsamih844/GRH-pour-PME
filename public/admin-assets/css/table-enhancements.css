@@ -1,0 +1,230 @@
+/* Table Enhancements for Bootstrap 4 */
+
+/* Main table styling */
+.modern-table {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    border: none;
+}
+
+.modern-table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 15px;
+    color: #495057;
+    vertical-align: middle;
+}
+
+.modern-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.modern-table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+    transform: scale(1.005);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.modern-table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    border-top: 1px solid #e9ecef;
+    font-size: 14px;
+    color: #212529;
+}
+
+/* Table with alternating row colors */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Border options */
+.table-bordered {
+    border: 1px solid #e9ecef;
+}
+
+.table-bordered td, 
+.table-bordered th {
+    border: 1px solid #e9ecef;
+}
+
+/* Text centered table */
+.table-centered td, 
+.table-centered th {
+    text-align: center;
+}
+
+/* Make table responsive with horizontal scroll on small devices */
+.table-responsive {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Table action buttons */
+.table-action-btn {
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 3px;
+    transition: all 0.3s ease;
+}
+
+.table-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Smaller action buttons for compact tables */
+.table-sm .table-action-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+/* Badge styling in tables */
+.table-badge {
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.badge-danger {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+.badge-warning {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #d39e00;
+}
+
+.badge-info {
+    background-color: rgba(23, 162, 184, 0.15);
+    color: #17a2b8;
+}
+
+/* Table pagination styling */
+.table-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.table-pagination .pagination {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.table-pagination .page-item .page-link {
+    border: none;
+    padding: 10px 16px;
+    font-weight: 600;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.table-pagination .page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+}
+
+.table-pagination .page-item .page-link:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+    transform: translateY(-2px);
+}
+
+/* Table with hover effect on row */
+.table-hover tbody tr {
+    position: relative;
+    z-index: 1;
+}
+
+.table-hover tbody tr:hover {
+    z-index: 2;
+}
+
+/* Table card wrapper */
+.table-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.table-card .card-header {
+    background-color: #fff;
+    border-bottom: 2px solid #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-card .card-header h4 {
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #343a40;
+}
+
+.table-card .card-body {
+    padding: 0;
+}
+
+.table-card .table {
+    margin-bottom: 0;
+}
+
+.table-card .card-footer {
+    background-color: #fff;
+    border-top: 2px solid #f8f9fa;
+    padding: 15px 20px;
+}
+
+/* Table search and filter */
+.table-search {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.table-search .form-control {
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 40px;
+    height: 40px;
+}
+
+.table-search .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #adb5bd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modern-table thead th,
+    .modern-table tbody td {
+        padding: 10px;
+    }
+    
+    .table-action-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+        margin: 2px;
+    }
+} 

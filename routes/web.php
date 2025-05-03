@@ -16,6 +16,7 @@ use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TaskController;
 use App\Http\controllers\viewEmployeeController;
+use App\Http\Controllers\EmployeeController;
 
 
 /*
@@ -196,6 +197,13 @@ Route::group(['middleware' => 'auth'], function () {
     // Employee route
 
     Route::group(['middleware' => ['auth', 'IsEmployee']], function () {
+        // Employee Dashboard
+        Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
+        Route::get('/employee/profile', [EmployeeController::class, 'profile'])->name('employee.profile');
+        Route::post('/employee/profile/update', [EmployeeController::class, 'updateProfile'])->name('employee.profile.update');
+        Route::get('/employee/tasks', [EmployeeController::class, 'myTasks'])->name('employee.tasks');
+        Route::get('/employee/payslips', [EmployeeController::class, 'myPayslips'])->name('employee.payslips');
+        Route::get('/employee/attendance', [EmployeeController::class, 'myAttendance'])->name('employee.attendance');
 
         // Attendance Routes for Employee
         Route::get('/Attendance/giveAttendance', [AttendanceController::class, 'giveAttendance'])->name('attendance.giveAttendance');
